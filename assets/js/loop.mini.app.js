@@ -14,7 +14,6 @@
     LOOP.prototype.getUserInfo = function (params) {    // 省略代码，举个例子，直接返回参数
         console.log('login'+params)
         bridge.callHandler('login', { appName: params.param.appName,appId: params.param.appId}, function responseCallback(responseData) {
-            console.log('111'+responseData)
             params.success(responseData);
         });
     }  
