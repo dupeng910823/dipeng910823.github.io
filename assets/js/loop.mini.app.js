@@ -23,9 +23,9 @@
     }  
 
     function setupWebViewJavascriptBridge(callback) {
-        // if (this.window.WebViewJavascriptBridge) { return callback(this.window.WebViewJavascriptBridge); }else {
-        //     setTimeout(function () { setupWebViewJavascriptBridge(callback) }, 100)
-        // }
+        if (this.window.WebViewJavascriptBridge) { return callback(this.window.WebViewJavascriptBridge); }else {
+            setTimeout(function () { setupWebViewJavascriptBridge(callback) }, 100)
+        }
         if (this.window.WVJBCallbacks) { return this.window.WVJBCallbacks.push(callback); }
         this.window.WVJBCallbacks = [callback];
         var WVJBIframe = document.createElement('iframe');
