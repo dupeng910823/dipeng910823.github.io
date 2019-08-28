@@ -22,6 +22,12 @@
         bridge.callHandler('openUrl', { url: url });
     }  
 
+    LOOP.prototype.getVersion = function () {
+        bridge.callHandler('getVersion','getVersion',function responseCallback(responseData) {
+            params.success(responseData);
+        });
+    }  
+
     function setupWebViewJavascriptBridge(callback) {
         if (this.window.WebViewJavascriptBridge) { return callback(this.window.WebViewJavascriptBridge); }else {
             setTimeout(function () { setupWebViewJavascriptBridge(callback) }, 100)
